@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. K.V. Subba Reddy Institute of Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #1a237e;
+            color: white;
+            padding: 8px 20px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .college-name h1 {
+            color: #1a237e;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .college-name p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .accreditation {
+            display: flex;
+            gap: 20px;
+        }
+
+        .accreditation-badge {
+            width: 60px;
+            height: 60px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1a237e;
+            font-size: 12px;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(to right, #1a237e, #303f9f);
+            padding: 0 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        nav ul li.dropdown {
+            position: relative;
+        }
+
+        nav ul li.dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            color: #333 !important;
+            padding: 12px 20px !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f5f5f5 !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 50%, #5c6bc0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 40px;
+        }
+
+        .hero-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Marquee */
+        .marquee-section {
+            background-color: #ff9800;
+            padding: 12px 0;
+            overflow: hidden;
+        }
+
+        .marquee {
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+            color: white;
+            font-weight: 500;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #1a237e;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #1a237e, #ff9800);
+            margin: 15px auto 0;
+        }
+
+        .section-title-light h2,
+        .section-title-light p {
+            color: white;
+        }
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: white;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .about-image .placeholder-img {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a237e;
+            font-size: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #1a237e, #303f9f);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-item h3 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #ff9800;
+        }
+
+        .stat-item p {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Programs Section */
+        .programs-section {
+            background-color: #f5f5f5;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .program-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .program-icon {
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+        }
+
+        .program-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .program-info h3 {
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+
+        .program-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Facilities Section */
+        .facilities-section {
+            background-color: white;
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .facility-card {
+            text-align: center;
+            padding: 30px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .facility-card:hover {
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            color: white;
+        }
+
+        .facility-card:hover h3,
+        .facility-card:hover p {
+            color: white;
+        }
+
+        .facility-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+
+        .facility-card:hover .facility-icon {
+            background: white;
+            color: #1a237e;
+        }
+
+        .facility-card h3 {
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+
+        .facility-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* News Section */
+        .news-section {
+            background-color: #f5f5f5;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .news-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .news-image {
+            height: 200px;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a237e;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-date {
+            color: #ff9800;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .news-content h3 {
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+
+        .news-content p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #1a237e, #303f9f);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .contact-item h3 {
+            color: #ff9800;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .contact-item p {
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #ff9800;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d1542;
+            color: white;
+            padding: 30px 50px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #1a237e;
+            border-radius: 50%;
+            margin: 0 10px;
+            line-height: 40px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #ff9800;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                min-width: 100%;
+            }
+
+            .programs-grid,
+            .facilities-grid,
+            .news-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-content h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div>
+            <span>📧 info@drkvsrit.ac.in</span>
+            <span style="margin-left: 20px;">📞 +91-XXX-XXX-XXXX</span>
+        </div>
+        <div>
+            <a href="#">Student Login</a>
+            <a href="#">Faculty Login</a>
+            <a href="#">Alumni</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-section">
+            <div class="logo">DRKV</div>
+            <div class="college-name">
+                <h1>Dr. K.V. Subba Reddy Institute of Technology</h1>
+                <p>Approved by AICTE, New Delhi | Affiliated to JNTUA, Ananthapuramu</p>
+            </div>
+        </div>
+        <div class="accreditation">
+            <div class="accreditation-badge">NAAC</div>
+            <div class="accreditation-badge">NBA</div>
+            <div class="accreditation-badge">AICTE</div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a href="#">About Us ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">Vision & Mission</a>
+                    <a href="#">Chairman's Message</a>
+                    <a href="#">Principal's Message</a>
+                    <a href="#">Infrastructure</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Academics ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">B.Tech Programs</a>
+                    <a href="#">M.Tech Programs</a>
+                    <a href="#">MBA</a>
+                    <a href="#">Academic Calendar</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Departments ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">Computer Science</a>
+                    <a href="#">Electronics & Communication</a>
+                    <a href="#">Electrical Engineering</a>
+                    <a href="#">Mechanical Engineering</a>
+                    <a href="#">Civil Engineering</a>
+                </div>
+            </li>
+            <li><a href="#">Placements</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Student Life</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slide">
+            <div class="hero-content">
+                <h2>Welcome to DRKVSRIT</h2>
+                <p>Empowering Future Engineers with Excellence in Education</p>
+                <a href="#" class="hero-btn">Explore Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-section">
+        <div class="marquee">
+            🎓 Admissions Open for 2024-25 | 🏆 Congratulations to our students for outstanding placements | 📢 NAAC Accredited Institution | 🎯 NBA Accredited Programs | 📚 Workshop on Artificial Intelligence - Register Now!
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="section-title">
+            <h2>About DRKVSRIT</h2>
+            <p>Building Tomorrow's Leaders Today</p>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <div class="placeholder-img">
+                    🏛️ Campus View
+                </div>
+            </div>
+            <div class="about-text">
+                <p>
+                    Dr. K.V. Subba Reddy Institute of Technology is a premier engineering institution committed to providing quality education and fostering innovation. Established with a vision to create competent engineers and technologists, our institution has consistently maintained high academic standards.
+                </p>
+                <p>
+                    The institute is approved by AICTE, New Delhi and affiliated to Jawaharlal Nehru Technological University, Ananthapuramu. With state-of-the-art infrastructure, experienced faculty, and industry collaborations, we prepare our students for successful careers in engineering and technology.
+                </p>
+                <p>
+                    Our commitment to excellence is reflected in our accreditations from NAAC and NBA, making us one of the preferred choices for engineering education in the region.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>25+</h3>
+                <p>Years of Excellence</p>
+            </div>
+            <div class="stat-item">
+                <h3>5000+</h3>
+                <p>Students</p>
+            </div>
+            <div class="stat-item">
+                <h3>200+</h3>
+                <p>Faculty Members</p>
+            </div>
+            <div class="stat-item">
+                <h3>90%</h3>
+                <p>Placement Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="section-title">
+            <h2>Our Programs</h2>
+            <p>Choose Your Path to Success</p>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-icon">💻</div>
+                <div class="program-info">
+                    <h3>Computer Science</h3>
+                    <p>B.Tech in CSE with specializations in AI, ML, and Data Science</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">📡</div>
+                <div class="program-info">
+                    <h3>Electronics & Communication</h3>
+                    <p>B.Tech in ECE with focus on VLSI and Embedded Systems</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">⚡</div>
+                <div class="program-info">
+                    <h3>Electrical Engineering</h3>
+                    <p>B.Tech in EEE covering Power Systems and Control</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">⚙️</div>
+                <div class="program-info">
+                    <h3>Mechanical Engineering</h3>
+                    <p>B.Tech in ME with specializations in Manufacturing and Design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="facilities-section">
+        <div class="section-title">
+            <h2>Campus Facilities</h2>
+            <p>World-Class Infrastructure for Holistic Development</p>
+        </div>
+        <div class="facilities-grid">
+            <div class="facility-card">
+                <div class="facility-icon">📚</div>
+                <h3>Digital Library</h3>
+                <p>Extensive collection of books, journals, and e-resources</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">🔬</div>
+                <h3>Modern Labs</h3>
+                <p>State-of-the-art laboratories with latest equipment</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">🏨</div>
+                <h3>Hostel</h3>
+                <p>Comfortable accommodation for boys and girls</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">🏃</div>
+                <h3>Sports Complex</h3>
+                <p>Indoor and outdoor sports facilities</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">🍽️</div>
+                <h3>Cafeteria</h3>
+                <p>Hygienic and nutritious food options</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">🚌</div>
+                <h3>Transportation</h3>
+                <p>Bus facility covering major routes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="section-title">
+            <h2>Latest News & Events</h2>
+            <p>Stay Updated with Campus Activities</p>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image">📰 News Image</div>
+                <div class="news-content">
+                    <div class="news-date">December 2024</div>
+                    <h3>Campus Placement Drive 2024</h3>
+                    <p>Major IT companies visiting campus for recruitment. Students encouraged to participate actively.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">📰 News Image</div>
+                <div class="news-content">
+                    <div class="news-date">November 2024</div>
+                    <h3>Technical Symposium</h3>
+                    <p>Annual technical fest featuring workshops, competitions, and guest lectures.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">📰 News Image</div>
+                <div class="news-content">
+                    <div class="news-date">October 2024</div>
+                    <h3>Industry-Academia Meet</h3>
+                    <p>Collaboration initiative to bridge gap between industry needs and academic curriculum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="section-title section-title-light">
+            <h2>Contact Us</h2>
+            <p>Get in Touch with Us</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>📍 Address</h3>
+                <p>Dr. K.V. Subba Reddy Institute of Technology<br>
+                Kurnool, Andhra Pradesh<br>
+                India - 518218</p>
+            </div>
+            <div class="contact-item">
+                <h3>📞 Contact</h3>
+                <p>Phone: +91-XXX-XXX-XXXX</p>
+                <p>Email: <a href="mailto:info@drkvsrit.ac.in">info@drkvsrit.ac.in</a></p>
+                <p>Website: <a href="https://drkvsrit.ac.in" target="_blank" rel="noopener noreferrer" aria-label="Visit DRKVSRIT website (opens in new tab)">www.drkvsrit.ac.in</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>⏰ Office Hours</h3>
+                <p>Monday - Saturday<br>
+                9:00 AM - 5:00 PM</p>
+                <p>Closed on Sundays and Government Holidays</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Dr. K.V. Subba Reddy Institute of Technology. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#" title="Facebook">f</a>
+            <a href="#" title="Twitter">t</a>
+            <a href="#" title="LinkedIn">in</a>
+            <a href="#" title="YouTube">▶</a>
+            <a href="#" title="Instagram">📷</a>
+        </div>
+    </footer>
+</body>
+</html>
